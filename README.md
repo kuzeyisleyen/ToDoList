@@ -1,50 +1,90 @@
-# Welcome to your Expo app 👋
+# ⚡ Yapılacaklar Listesi
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Modern, gerçek zamanlı yapılacaklar listesi uygulaması. React Native ve Convex ile geliştirilmiştir.
 
-## Get started
+## 📱 Ekran Görüntüleri
 
-1. Install dependencies
+| Yapılacaklar | Ayarlar | Hakkımızda |
+|---|---|---|
+| ![Yapılacaklar](./screenshots/yapilacaklar.png) | ![Ayarlar](./screenshots/ayarlar.png) | ![Hakkımızda](./screenshots/hakkimizda.png) |
 
-   ```bash
-   npm install
-   ```
+## ✨ Özellikler
 
-2. Start the app
+- ➕ Yapılacak ekleme, düzenleme ve silme
+- ✅ Tamamlanma durumu takibi
+- 📊 Gerçek zamanlı ilerleme istatistikleri
+- 🌙 Karanlık / Aydınlık mod desteği
+- ☁️ Convex ile anlık veri senkronizasyonu
+- 💾 Mod tercihi kalıcı olarak saklanır
 
-   ```bash
-   npx expo start
-   ```
+## 🛠️ Teknolojiler
 
-In the output, you'll find options to open the app in a
+| Teknoloji | Açıklama |
+|---|---|
+| [React Native](https://reactnative.dev/) | Mobil uygulama framework'ü |
+| [Expo](https://expo.dev/) | React Native geliştirme platformu |
+| [Expo Router](https://expo.github.io/router) | Dosya tabanlı navigasyon |
+| [Convex](https://convex.dev/) | Gerçek zamanlı backend |
+| [TypeScript](https://www.typescriptlang.org/) | Tip güvenli JavaScript |
+| [AsyncStorage](https://react-native-async-storage.github.io/async-storage/) | Yerel veri saklama |
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🚀 Kurulum
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Gereksinimler
+- Node.js 18+
+- Expo Go (telefonda test için)
+- Convex hesabı
 
-## Get a fresh project
+### Adımlar
 
-When you're ready, run:
-
+**1. Repoyu klonla:**
 ```bash
-npm run reset-project
+git clone https://github.com/KULLANICI_ADIN/REPO_ADIN.git
+cd REPO_ADIN
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+**2. Bağımlılıkları yükle:**
+```bash
+npm install
+```
 
-## Learn more
+**3. Convex kurulumu:**
+```bash
+npx convex dev
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+**4. `.env.local` dosyası oluştur:**
+```env
+EXPO_PUBLIC_CONVEX_URL=https://senin-convex-urlin.convex.cloud
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+**5. Uygulamayı başlat:**
+```bash
+npx expo start
+```
 
-## Join the community
+**6. Expo Go ile tara:**
+Terminalde çıkan QR kodu Expo Go uygulamasıyla tara.
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 📁 Proje Yapısı
+├── app/
+│   ├── _layout.tsx          # Root layout
+│   ├── index.tsx            # Yönlendirme
+│   └── (tabs)/
+│       ├── _layout.tsx      # Tab navigasyon
+│       ├── index.tsx        # Yapılacaklar sayfası
+│       ├── ayarlar.tsx      # Ayarlar sayfası
+│       └── hakkimizda.tsx   # Hakkımızda sayfası
+├── components/
+│   ├── Header.tsx           # Başlık ve ilerleme çubuğu
+│   ├── EmptyState.tsx       # Boş liste gösterimi
+│   ├── LoadingScreen.tsx    # Yükleme ekranı
+│   ├── YapilacakItem.tsx    # Liste öğesi
+│   ├── YapilcakGiris.tsx    # Yeni yapılacak girişi
+│   ├── ProgressStats.tsx    # İstatistikler
+│   ├── Tercihler.tsx        # Tercihler bölümü
+│   └── Tehlike.tsx          # Tehlike bölümü
+├── convex/
+│   └── yapilacaklar.ts      # Backend fonksiyonları
+└── hooks/
+└── useTheme.ts          # Tema yönetimi
